@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MECEE-BL Predicted MCQs — Zoology, Botany, Chemistry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#e9edf2;
+  --card:#ffffff;
+  --ink:#0f1c33;
+  --ink-soft:#4a5a75;
+  --rule:#c8d2de;
+  --mark:#ffdf5c;
+  --right:#0f6b46;
+  --right-bg:#dff1e7;
+  --tag-e:#2f6f8f;
+  --tag-m:#8a5b18;
+  --tag-d:#8e2f45;
+  --shadow:0 1px 0 rgba(15,28,51,.06);
+}
+:root:not([data-theme="light"]){ }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e141d;
+    --card:#161e2a;
+    --ink:#e6ecf4;
+    --ink-soft:#9aabc2;
+    --rule:#2a3646;
+    --mark:#7a6415;
+    --right:#6fd6a5;
+    --right-bg:#153426;
+    --tag-e:#7fc0e0;
+    --tag-m:#e0b064;
+    --tag-d:#f09aae;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e141d;
+  --card:#161e2a;
+  --ink:#e6ecf4;
+  --ink-soft:#9aabc2;
+  --rule:#2a3646;
+  --mark:#7a6415;
+  --right:#6fd6a5;
+  --right-bg:#153426;
+  --tag-e:#7fc0e0;
+  --tag-m:#e0b064;
+  --tag-d:#f09aae;
+  --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;line-height:1.6;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px 80px}
+header.masthead{padding:56px 0 28px;border-bottom:2px solid var(--ink)}
+h1{
+  font-family:"Newsreader",Georgia,serif;font-weight:600;
+  font-size:clamp(2rem,6vw,3.1rem);line-height:1.05;margin:0 0 14px;letter-spacing:-.01em;
+}
+.standfirst{max-width:60ch;color:var(--ink-soft);margin:0 0 6px;font-size:1.02rem}
+.source{color:var(--ink-soft);font-size:.9rem;margin-top:14px}
+.controls{
+  position:sticky;top:0;z-index:20;background:var(--paper);
+  padding:14px 0 12px;border-bottom:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+}
+.controls::before{content:"";position:absolute;left:-100vw;right:-100vw;top:0;bottom:0;background:var(--paper);z-index:-1}
+button{font:inherit;cursor:pointer}
+.chip{
+  border:1px solid var(--rule);background:var(--card);color:var(--ink);
+  padding:7px 14px;border-radius:999px;font-size:.88rem;font-weight:500;
+}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip:focus-visible,.reveal:focus-visible{outline:3px solid var(--tag-e);outline-offset:2px}
+.spacer{flex:1}
+.count{font-size:.84rem;color:var(--ink-soft);white-space:nowrap}
+h2.sub{
+  font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:1.9rem;
+  margin:52px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--rule);
+}
+h2.sub span{font-family:"Public Sans",sans-serif;font-size:.8rem;font-weight:400;color:var(--ink-soft);display:block;border:0;margin-top:4px}
+.q{display:grid;grid-template-columns:52px 1fr;gap:0 16px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.num{font-family:"Newsreader",Georgia,serif;font-size:1.35rem;color:var(--ink-soft);line-height:1.3;padding-top:1px}
+.stem{margin:0 0 12px;max-width:66ch;font-weight:500}
+.tag{
+  display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;
+  margin-left:8px;vertical-align:2px;color:var(--tag-m);
+}
+.tag.E{color:var(--tag-e)} .tag.D{color:var(--tag-d)}
+ol.opts{list-style:none;margin:0 0 14px;padding:0;max-width:66ch}
+ol.opts li{padding:3px 0 3px 30px;position:relative}
+ol.opts li::before{
+  content:attr(data-k) ")";position:absolute;left:0;color:var(--ink-soft);font-size:.92rem;
+}
+.q.open ol.opts li.correct{font-weight:700}
+.q.open ol.opts li.correct::after{
+  content:"";position:absolute;left:24px;right:-6px;top:50%;height:11px;
+  background:var(--mark);z-index:-1;border-radius:2px;
+}
+ol.opts li.correct{position:relative;z-index:0}
+.reveal{
+  border:1px solid var(--rule);background:transparent;color:var(--ink-soft);
+  padding:5px 12px;border-radius:6px;font-size:.82rem;font-weight:500;
+}
+.reveal:hover{border-color:var(--ink);color:var(--ink)}
+.ans{display:none;margin-top:10px;background:var(--right-bg);border-left:3px solid var(--right);padding:12px 14px;border-radius:0 6px 6px 0;max-width:66ch}
+.q.open .ans{display:block}
+.q.open .reveal{display:none}
+.ans b{color:var(--right)}
+.ans p{margin:6px 0 0;font-size:.94rem;color:var(--ink)}
+.topic{font-size:.78rem;color:var(--ink-soft);margin-top:8px}
+.analysis{margin-top:64px;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:28px 26px;box-shadow:var(--shadow)}
+.analysis h2{font-family:"Newsreader",Georgia,serif;font-size:1.8rem;margin:0 0 6px}
+.analysis h3{font-size:1rem;margin:28px 0 8px;color:var(--ink)}
+.analysis h3:first-of-type{margin-top:18px}
+.analysis ul,.analysis ol{margin:0;padding-left:22px;max-width:66ch}
+.analysis li{margin:5px 0}
+.analysis p{max-width:66ch}
+.note{font-size:.88rem;color:var(--ink-soft);margin-top:36px;max-width:66ch}
+@media (max-width:600px){
+  .q{grid-template-columns:1fr;gap:0}
+  .num{font-size:1rem;margin-bottom:4px}
+  .wrap{padding:0 16px 60px}
+  header.masthead{padding:36px 0 22px}
+}
+@media print{.controls{display:none}.q .ans{display:block}.reveal{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <h1>Predicted MCQs for your MECEE-BL prep</h1>
+  <p class="standfirst">170 practice questions built from the topics in your Model Set A papers — Zoology, Botany and Chemistry. Same style and difficulty mix as your set, but new wording, new values and new situations.</p>
+  <p class="source">Tap <em>Show answer</em> on any question. These are high-probability practice questions based on topic patterns, not leaked or guaranteed questions.</p>
+</header>
+
+<div class="controls" role="group" aria-label="Filter and reveal">
+  <button class="chip" data-f="all" aria-pressed="true">All</button>
+  <button class="chip" data-f="Zoology" aria-pressed="false">Zoology</button>
+  <button class="chip" data-f="Botany" aria-pressed="false">Botany</button>
+  <button class="chip" data-f="Chemistry" aria-pressed="false">Chemistry</button>
+  <span class="spacer"></span>
+  <button class="chip" id="toggleAll">Show all answers</button>
+  <span class="count" id="count"></span>
+</div>
+
+<main id="list"></main>
+
+<section class="analysis">
+  <h2>What your papers are telling you</h2>
+  <p>Based only on the questions you uploaded (Zoology 1–20, Botany 41–65, Chemistry 81–114 of Model Set A).</p>
+
+  <h3>Most important topics — study these first</h3>
+  <ol>
+    <li><b>Human physiology</b> — cardiac cycle and heart sounds, ECG waves, muscle contraction and sarcomere bands, nerve impulse and ionic movements, blood clotting. Five of your twenty zoology questions came from here.</li>
+    <li><b>Animal diversity with feature-clue framing</b> — a case is described (flame cells, acoelomate, jointed appendages, dry cornified skin) and you must name the phylum or class. Learn diagnostic features, not just names.</li>
+    <li><b>Cell biology and cell division</b> — organelles, endomembrane system, cells lacking nuclei, S phase, features of meiosis.</li>
+    <li><b>Chemical bonding and periodicity</b> — electron deficient compounds, covalent character (Fajans), inert pair effect, diagonal relationship, thermal stability trends, hybridization.</li>
+    <li><b>Inorganic qualitative analysis</b> — group reagents, why HCl before H<sub>2</sub>S, Nessler's reagent, deep blue copper complex, passivity of iron.</li>
+    <li><b>Mole concept and gas laws with numericals</b> — Avogadro's law, mass of an element in a hydrate, PV = nRT in SI units, Faraday's laws.</li>
+    <li><b>Malaria and parasitic disease</b> — two questions in twenty. Stages, species, vector, symptoms.</li>
+  </ol>
+
+  <h3>High-priority concepts most likely to be reworded</h3>
+  <ul>
+    <li>Which band or zone changes during muscle contraction (A band constant, I band and H zone shorten).</li>
+    <li>Anticoagulant mechanisms: citrate and oxalate remove Ca<sup>2+</sup>; heparin acts through antithrombin.</li>
+    <li>Sporozoite infects humans, gametocyte infects the mosquito, <i>P. falciparum</i> is malignant.</li>
+    <li>Acoelomate vs pseudocoelomate vs coelomate, paired with complete or incomplete gut.</li>
+    <li>Sporopollenin, tapetum function, 2-celled pollen, 7-celled 8-nucleate embryo sac.</li>
+    <li>Pyramid of energy always upright; pyramid of biomass inverted in aquatic systems.</li>
+    <li>E<sub>n</sub> = −13.6/n<sup>2</sup> eV and r<sub>n</sub> = 0.529 n<sup>2</sup> Å.</li>
+    <li>ΔH = ΔE + Δn<sub>g</sub>RT and when the two are equal.</li>
+    <li>α = √(K<sub>a</sub>/C) for weak acids, expressed as a percentage.</li>
+    <li>Coulombs = moles × electrons × 96500.</li>
+    <li>Common ion effect in salt analysis (HCl before H<sub>2</sub>S, NH<sub>4</sub>Cl before NH<sub>4</sub>OH).</li>
+  </ul>
+
+  <h3>Topics your set covers weakly — fill these gaps</h3>
+  <ul>
+    <li><b>Zoology:</b> excretion and the ornithine cycle, endocrine glands beyond thyroxine, immunity and antibody classes, earthworm and frog anatomy beyond the ovaries question, respiration and gaseous transport, digestion and enzymes.</li>
+    <li><b>Botany:</b> photosynthesis (C3, C4, Kranz anatomy, light reaction), respiration and glycolysis, plant growth hormones, water relations and transpiration, plant tissue types, Mendelian ratios in numerical form.</li>
+    <li><b>Chemistry:</b> quantum numbers and electronic configuration exceptions, shapes from VSEPR, electrochemical cells and EMF, solutions and colligative properties, haloalkanes, alcohols and carbonyl reactions in more depth, environmental chemistry.</li>
+    <li>No Physics or MAT questions were in your upload, and both carry marks in MECEE-BL. Do not let those go untouched.</li>
+  </ul>
+
+  <h3>Last-minute revision list</h3>
+  <ol>
+    <li>Sarcomere bands during contraction; heart sounds; ECG waves (P, QRS, T).</li>
+    <li>Ionic basis of action potential: Na<sup>+</sup> influx up, K<sup>+</sup> efflux down.</li>
+    <li>Phylum diagnostic features table (symmetry, body cavity, gut, circulation, segmentation).</li>
+    <li>Plasmodium life cycle stages and the four species.</li>
+    <li>Epithelial tissue types and their locations.</li>
+    <li>Endomembrane system members; organelles lacking DNA; cells lacking nuclei.</li>
+    <li>Meiosis stage events: zygotene, pachytene, diplotene, diakinesis.</li>
+    <li>Genetic code properties and the three stop codons.</li>
+    <li>Biotech toolkit: restriction enzymes, ligase, Ti plasmid, Taq polymerase.</li>
+    <li>Ecological pyramids, 10% law, decomposition steps and conditions.</li>
+    <li>Pollen and embryo sac numbers; double fertilisation.</li>
+    <li>Secondary growth: vascular cambium, timber, cork cambium, suberin.</li>
+    <li>Bohr energy and radius formulas.</li>
+    <li>Periodic trends plus the four named effects: inert pair, lanthanide contraction, diagonal relationship, Fajans' rules.</li>
+    <li>Hybridization and shape for SO<sub>2</sub>, NH<sub>3</sub>, SF<sub>6</sub>, PCl<sub>5</sub>, XeF<sub>4</sub>.</li>
+    <li>ΔH vs ΔE; factors that do and do not change K<sub>c</sub>.</li>
+    <li>Oxidation number rules for peroxides, superoxides and OF<sub>2</sub>.</li>
+    <li>Faraday's laws numericals.</li>
+    <li>Order of reaction, zero order, first-order half life.</li>
+    <li>Salt analysis group reagents and the confirmatory colours.</li>
+    <li>Named organic reactions: Wurtz, Friedel–Crafts, Kolbe, Grignard, Markovnikov and peroxide effect.</li>
+    <li>Common names: phosgene, oil of mirbane, oil of bitter almond, Nessler's reagent.</li>
+  </ol>
+</section>
+
+<p class="note">Work through a subject in one sitting, mark every question you got wrong, and re-attempt only those the next day. Wrong answers are worth more revision time than the ones you already know.</p>
+
+</div>
+
+<script>
+const DATA=[
+{s:"Zoology",items:[
+{q:"In industrial melanism, dark-coloured moths increased in number in polluted areas mainly because",o:["They mutated in response to soot","They were better camouflaged on darkened trees and escaped predators","Light moths migrated away","Soot chemically darkened the adult moths"],a:1,d:"E",t:"Evolution",e:"Soot killed the lichens on tree trunks. Dark moths blended in, survived predation and left more offspring. This is natural selection acting on existing variation."},
+{q:"Latimeria (coelacanth) is scientifically important because it is",o:["A living fossil showing features linking fishes and amphibians","The direct ancestor of birds","A completely extinct flying reptile","The connecting link between reptiles and mammals"],a:0,d:"E",t:"Evolution",e:"Coelacanth was thought extinct but was rediscovered. Its lobed fins resemble the limbs of early tetrapods, so it is treated as a living fossil."},
+{q:"Archaeopteryx is regarded as a connecting link between",o:["Fishes and amphibians","Amphibians and reptiles","Reptiles and birds","Reptiles and mammals"],a:2,d:"E",t:"Evolution",e:"It had feathers and a wishbone like birds, but teeth, a long bony tail and clawed fingers like reptiles."},
+{q:"The wings of a butterfly and the wings of a bat are",o:["Homologous organs showing divergent evolution","Analogous organs showing convergent evolution","Vestigial organs","Atavistic structures"],a:1,d:"M",t:"Evolution",e:"They differ in structure and origin but perform the same function of flight. Same function with different structure equals analogy and convergent evolution."},
+{q:"Forelimbs of a whale, a bat and a horse have the same basic bone plan but different functions. These are",o:["Analogous organs","Vestigial organs","Homologous organs showing divergent evolution","Homologous organs showing convergent evolution"],a:2,d:"M",t:"Evolution",e:"Same structural plan inherited from a common ancestor, modified for different functions. This is divergent evolution."},
+{q:"The variety of beak shapes in Darwin's finches on the Galapagos islands is the best example of",o:["Convergent evolution","Adaptive radiation","Genetic drift","Artificial selection"],a:1,d:"M",t:"Evolution",e:"One ancestral stock radiated into many forms adapted to different food habits within a geographical area."},
+{q:"A man loses a leg in an accident, yet all his children are born with normal legs. This is because",o:["Mutation did not occur in the sperm","Changes in body (somatic) cells are not transmitted to germ cells","The injury was not severe enough","Acquired characters are always inherited"],a:1,d:"M",t:"Evolution",e:"Only changes in the DNA of germ cells pass to offspring. This is why Lamarck's inheritance of acquired characters was rejected (Weismann's germplasm theory)."},
+{q:"The first hominid known to have made and used stone tools was",o:["Ramapithecus","Australopithecus","Homo habilis","Homo erectus"],a:2,d:"M",t:"Human evolution",e:"Homo habilis means handy man, named for the simple stone tools found with its fossils."},
+{q:"The correct sequence in human evolution is",o:["Australopithecus \u2192 Ramapithecus \u2192 Homo erectus \u2192 Homo habilis","Ramapithecus \u2192 Australopithecus \u2192 Homo habilis \u2192 Homo erectus \u2192 Homo sapiens","Homo habilis \u2192 Australopithecus \u2192 Homo erectus \u2192 Homo sapiens","Australopithecus \u2192 Homo erectus \u2192 Homo habilis \u2192 Homo sapiens"],a:1,d:"M",t:"Human evolution",e:"Cranial capacity and tool culture increase steadily along this line, ending with modern Homo sapiens."},
+{q:"Vestigial organs such as the vermiform appendix support evolution because they",o:["Are useful new organs still developing","Are reduced remnants of organs that were functional in ancestors","Appear only in diseased individuals","Are produced by mutation in every generation"],a:1,d:"M",t:"Evolution",e:"Their presence in a reduced, functionless form points to descent from ancestors in which they worked."},
+{q:"Flame cells serve as excretory structures in",o:["Annelida","Platyhelminthes","Nematoda","Arthropoda"],a:1,d:"E",t:"Animal diversity",e:"Protonephridia with flame cells are typical of flatworms such as Planaria and Taenia."},
+{q:"A roundworm isolated from the human intestine is elongated, unsegmented, has a body cavity not lined by mesoderm, and a mouth as well as an anus. It is",o:["Triploblastic, acoelomate, with an incomplete gut","Diploblastic, pseudocoelomate, with a complete gut","Triploblastic, pseudocoelomate, with a complete gut","Triploblastic, coelomate, with a complete gut"],a:2,d:"M",t:"Animal diversity",e:"Nematodes like Ascaris have a false coelom (pseudocoel) and a complete alimentary canal with mouth and anus."},
+{q:"Tapeworm has no alimentary canal. It obtains nutrition by",o:["Absorbing digested food through the body surface","Ingesting host tissue through a mouth","Photosynthesis","Filter feeding"],a:0,d:"E",t:"Animal diversity",e:"Living in the host's intestine, it absorbs already-digested food across its tegument, so a gut is unnecessary."},
+{q:"True coelom, metameric segmentation and a closed circulatory system together indicate",o:["Nematoda","Annelida","Arthropoda","Mollusca"],a:1,d:"M",t:"Animal diversity",e:"These three features appear together first in annelids such as the earthworm and Nereis."},
+{q:"Book lungs are the respiratory organs of",o:["Cockroach","Prawn","Scorpion","Earthworm"],a:2,d:"E",t:"Animal diversity",e:"Arachnids such as scorpions and spiders respire through book lungs. Insects use tracheae and prawns use gills."},
+{q:"An animal with a water vascular system, tube feet and a spiny endoskeleton belongs to",o:["Mollusca","Echinodermata","Arthropoda","Chordata"],a:1,d:"M",t:"Animal diversity",e:"The water vascular system with tube feet used in locomotion is unique to echinoderms like starfish."},
+{q:"Which feature separates Aves from Reptilia?",o:["Presence of an amniotic egg","Presence of scales on legs","A completely four-chambered heart and warm-blooded nature","Internal fertilisation"],a:2,d:"M",t:"Animal diversity",e:"Both lay amniotic eggs and fertilise internally, but only birds are homeothermic with a fully divided four-chambered heart."},
+{q:"Simple squamous epithelium lines the alveoli and Bowman's capsule because this tissue is best suited for",o:["Secretion of enzymes","Protection against abrasion","Rapid diffusion and filtration","Absorption of fat"],a:2,d:"E",t:"Animal tissue",e:"A single layer of very thin flat cells offers the shortest path for exchange of gases and filtrate."},
+{q:"Ciliated columnar epithelium is found in the",o:["Trachea and fallopian tube","Skin and oesophagus","Alveoli and blood capillaries","Urinary bladder"],a:0,d:"M",t:"Animal tissue",e:"Cilia move mucus up the trachea and move the ovum along the fallopian tube."},
+{q:"Tendon, which joins muscle to bone, is",o:["Dense regular connective tissue rich in collagen","Loose areolar tissue","Smooth muscle tissue","Elastic cartilage"],a:0,d:"M",t:"Animal tissue",e:"Parallel collagen bundles give tendons high tensile strength. Ligaments (bone to bone) are rich in elastic fibres."},
+{q:"Which of the following is NOT a connective tissue?",o:["Blood","Bone","Cartilage","Neuron"],a:3,d:"E",t:"Animal tissue",e:"Neurons form nervous tissue. Blood, bone and cartilage all have cells scattered in a matrix, which defines connective tissue."},
+{q:"Blood collected in a vial containing potassium oxalate does not clot because oxalate",o:["Destroys fibrinogen","Precipitates calcium ions needed for clotting","Digests platelets","Lowers the blood pH sharply"],a:1,d:"M",t:"Blood",e:"Clotting needs free Ca2+ at several steps. Oxalate and citrate both remove Ca2+, one by precipitation and one by binding."},
+{q:"Heparin prevents intravascular clotting by",o:["Binding calcium ions","Acting with antithrombin to inhibit thrombin","Destroying fibrin threads","Increasing platelet number"],a:1,d:"M",t:"Blood",e:"Heparin is a natural anticoagulant from mast cells and basophils. It works inside the body, unlike citrate which works only in a tube."},
+{q:"Deficiency of vitamin K delays blood clotting because this vitamin is needed for",o:["Formation of platelets","Synthesis of prothrombin in the liver","Conversion of fibrin to fibrinogen","Absorption of calcium from the gut"],a:1,d:"M",t:"Blood",e:"Vitamin K is a cofactor for hepatic synthesis of prothrombin and several other clotting factors."},
+{q:"The correct order of events in blood clotting is",o:["Fibrin \u2192 fibrinogen \u2192 thrombin \u2192 prothrombin","Thromboplastin \u2192 prothrombin to thrombin \u2192 fibrinogen to fibrin","Prothrombin \u2192 fibrinogen \u2192 thromboplastin \u2192 fibrin","Thrombin \u2192 thromboplastin \u2192 fibrin \u2192 fibrinogen"],a:1,d:"D",t:"Blood",e:"Injured tissue and platelets release thromboplastin, which with Ca2+ converts prothrombin to thrombin, and thrombin converts soluble fibrinogen into insoluble fibrin."},
+{q:"The universal donor and universal recipient blood groups are respectively",o:["AB positive and O negative","O negative and AB positive","A positive and B negative","O positive and AB negative"],a:1,d:"E",t:"Blood",e:"O negative RBCs carry no A, B or D antigen, so they are not attacked. AB positive plasma has no anti-A or anti-B antibodies."},
+{q:"The average lifespan of a human RBC and its site of destruction are",o:["120 days, spleen","20 days, liver","120 days, bone marrow","60 days, kidney"],a:0,d:"E",t:"Blood",e:"Old RBCs are broken down mainly in the spleen, which is therefore called the graveyard of RBCs."},
+{q:"Which band of the sarcomere contains only thin filaments?",o:["A band","I band","H zone","M line"],a:1,d:"M",t:"Muscle",e:"The I band is the actin-only region. The A band is the full length of myosin, and the H zone is the myosin-only part."},
+{q:"Calcium released from the sarcoplasmic reticulum initiates contraction by binding to",o:["Myosin head","Troponin, which shifts tropomyosin and exposes binding sites on actin","Actin directly, forming cross bridges","ATP, activating it"],a:1,d:"M",t:"Muscle",e:"Ca2+ binds troponin C; tropomyosin moves aside; myosin heads can then attach to actin."},
+{q:"A sarcomere is defined as the region between two successive",o:["A bands","M lines","Z lines","H zones"],a:2,d:"E",t:"Muscle",e:"The sarcomere, the functional unit of a myofibril, extends from one Z line to the next."},
+{q:"Rigor mortis, the stiffening of muscles after death, occurs because",o:["Calcium is no longer released","ATP is not available to detach myosin heads from actin","Acetylcholine accumulates","Lactic acid dissolves the filaments"],a:1,d:"D",t:"Muscle",e:"Detachment of a cross bridge needs fresh ATP. With no ATP, the heads stay locked on actin and the muscle stays rigid."},
+{q:"The pacemaker of the human heart is the",o:["AV node in the left atrium","SA node in the right atrium","Bundle of His in the septum","Purkinje fibres in the ventricle"],a:1,d:"E",t:"Circulation",e:"The sinoatrial node in the right atrial wall has the highest rate of self-excitation, so it sets the heart rate."},
+{q:"The first heart sound (lub) is produced by",o:["Closure of the atrioventricular valves at the start of ventricular systole","Closure of the semilunar valves at the end of systole","Opening of the aortic valve","Contraction of the atria"],a:0,d:"M",t:"Circulation",e:"Lub is longer and duller, caused by AV valve closure. Dub is short and sharp, caused by semilunar valve closure."},
+{q:"The P wave of a normal ECG represents",o:["Depolarisation of the ventricles","Repolarisation of the ventricles","Depolarisation of the atria","Repolarisation of the atria"],a:2,d:"M",t:"Circulation",e:"P = atrial depolarisation, QRS = ventricular depolarisation (atrial repolarisation is hidden in it), T = ventricular repolarisation."},
+{q:"If stroke volume is 70 mL and heart rate is 72 beats per minute, the cardiac output is about",o:["1.4 L/min","5.0 L/min","7.2 L/min","14 L/min"],a:1,d:"M",t:"Circulation",e:"Cardiac output = stroke volume \u00d7 heart rate = 70 \u00d7 72 = 5040 mL/min, roughly 5 litres per minute."},
+{q:"The resting membrane potential of a neuron (about \u221270 mV) is chiefly maintained by",o:["Na+/K+ pump sending 3 Na+ out for every 2 K+ in","Equal movement of Na+ and K+","Chloride pumps only","Voltage-gated calcium channels"],a:0,d:"M",t:"Nerve",e:"The unequal exchange plus high membrane permeability to K+ leaves the inside negative."},
+{q:"Repolarisation of the neuronal membrane after an action potential is mainly due to",o:["Influx of Na+","Efflux of K+","Influx of Cl\u2212","Efflux of Ca2+"],a:1,d:"M",t:"Nerve",e:"Na+ channels inactivate and voltage-gated K+ channels open, so K+ leaves and the inside becomes negative again."},
+{q:"Impulse conduction is faster in a myelinated nerve fibre because",o:["Myelin increases the diameter uniformly","The impulse jumps from one node of Ranvier to the next (saltatory conduction)","Myelin supplies extra ATP","Myelin allows continuous depolarisation along the whole axon"],a:1,d:"D",t:"Nerve",e:"Myelin insulates the axon; depolarisation occurs only at the unmyelinated nodes, so the impulse leaps and travels much faster."},
+{q:"The neurotransmitter released at the neuromuscular junction is",o:["Dopamine","Acetylcholine","GABA","Serotonin"],a:1,d:"E",t:"Nerve",e:"Acetylcholine crosses the synaptic cleft and depolarises the muscle fibre membrane."},
+{q:"Besides histamine, mast cells also secrete which substance?",o:["Heparin","Fibrinogen","Insulin","Thyroxine"],a:0,d:"M",t:"Immunity",e:"Mast cells release histamine (allergy, vasodilation) and heparin (anticoagulant) from the same granules."},
+{q:"The antibody class chiefly responsible for immediate hypersensitivity reactions such as hay fever is",o:["IgG","IgA","IgE","IgM"],a:2,d:"M",t:"Immunity",e:"IgE binds to mast cells; on second exposure to the allergen it triggers degranulation and histamine release."},
+{q:"The stage of Plasmodium that enters the human body through the bite of a mosquito is the",o:["Merozoite","Sporozoite","Gametocyte","Trophozoite"],a:1,d:"M",t:"Malaria",e:"Sporozoites from the salivary gland of the female Anopheles enter the blood and reach the liver."},
+{q:"Recurring chills and high fever in malaria are caused by",o:["Toxins from the mosquito's saliva","Release of haemozoin when infected RBCs rupture","Multiplication of the parasite in the liver","Destruction of platelets"],a:1,d:"M",t:"Malaria",e:"Haemozoin, a toxic pigment, is released along with merozoites when RBCs burst, producing the typical fever cycle."},
+{q:"The stage of Plasmodium infective to the mosquito is the",o:["Sporozoite","Cryptozoite","Gametocyte","Merozoite"],a:2,d:"M",t:"Malaria",e:"Gametocytes taken up in the blood meal continue the sexual cycle inside the mosquito's gut."},
+{q:"Quartan malaria, with fever recurring every 72 hours, is caused by",o:["Plasmodium vivax","Plasmodium falciparum","Plasmodium malariae","Plasmodium ovale"],a:2,d:"D",t:"Malaria",e:"P. malariae has a 72-hour erythrocytic cycle. P. vivax and P. falciparum have 48-hour cycles (benign and malignant tertian)."},
+{q:"Which statement is correct?",o:["Hibernation is winter sleep and aestivation is summer sleep","Hibernation is summer sleep and aestivation is winter sleep","Both mean the same thing","Aestivation occurs only in birds"],a:0,d:"M",t:"Animal behaviour",e:"A frog buried in mud during a dry summer is aestivating; one inactive during cold winter is hibernating."},
+{q:"If the thyroid gland is removed from a tadpole, the result is",o:["Rapid metamorphosis into a small frog","Failure to metamorphose, producing a giant tadpole","Immediate death","Normal metamorphosis with delayed growth"],a:1,d:"M",t:"Amphibian biology",e:"Thyroxine drives metamorphosis. Without it the larva keeps growing but never becomes a frog."},
+{q:"Retention of larval features in a sexually mature animal, as seen in Axolotl larva, is called",o:["Metamorphosis","Neoteny","Paedogenesis by parthenogenesis","Regeneration"],a:1,d:"D",t:"Amphibian biology",e:"Neoteny is caused by low thyroxine activity; adding thyroxine can make the Axolotl transform into an adult salamander."},
+{q:"The clitellum of the earthworm is present in segments",o:["10 and 11","12 and 13","14 to 16","6 to 9"],a:2,d:"M",t:"Earthworm",e:"The glandular clitellum (segments 14\u201316) secretes the cocoon. Testes lie in 10 and 11, ovaries in 12 and 13, spermathecae in 6 to 9."},
+{q:"The excretory organ and the main nitrogenous waste of the earthworm are",o:["Nephridia and urea","Malpighian tubules and uric acid","Flame cells and ammonia","Green glands and urea"],a:0,d:"M",t:"Earthworm",e:"Earthworms are ureotelic and excrete through segmentally arranged nephridia."},
+{q:"Birds, reptiles and insects excrete uric acid mainly because",o:["Uric acid is highly soluble","It requires no energy to make","It is nearly insoluble and conserves water","Their kidneys cannot make urea"],a:2,d:"E",t:"Excretion",e:"Uric acid is excreted as a semisolid paste with very little water loss, useful for terrestrial and egg-laying animals."},
+{q:"The ornithine (urea) cycle takes place in the",o:["Kidney","Liver","Spleen","Pancreas"],a:1,d:"M",t:"Excretion",e:"Ammonia is converted into urea in liver cells; the kidney only filters and excretes the urea formed."},
+{q:"The heart of a frog is",o:["Two chambered with a sinus venosus","Three chambered with a sinus venosus","Four chambered","Three chambered without any accessory chamber"],a:1,d:"E",t:"Amphibian biology",e:"Two atria and one ventricle, plus a sinus venosus that receives venous blood and a conus arteriosus that leaves it."}
+]},
+{s:"Botany",items:[
+{q:"Which of the following is a purine base?",o:["Cytosine","Thymine","Adenine","Uracil"],a:2,d:"E",t:"Biomolecules",e:"Purines are adenine and guanine (double ring). Cytosine, thymine and uracil are single-ring pyrimidines."},
+{q:"Which amino acid contains sulphur?",o:["Glycine","Cysteine","Serine","Alanine"],a:1,d:"E",t:"Biomolecules",e:"Cysteine and methionine are the two sulphur-containing amino acids; cysteine forms disulphide bridges in proteins."},
+{q:"Which of the following is a non-reducing sugar?",o:["Glucose","Maltose","Lactose","Sucrose"],a:3,d:"M",t:"Biomolecules",e:"In sucrose both anomeric carbons are involved in the glycosidic bond, so no free aldehyde or ketone group remains."},
+{q:"Chitin, found in the fungal cell wall and insect exoskeleton, is a polymer of",o:["Glucose","N-acetylglucosamine","Galactose","Fructose"],a:1,d:"M",t:"Biomolecules",e:"It is an amino sugar polymer, which is why chitin is both tough and nitrogen-containing, unlike cellulose."},
+{q:"The storage polysaccharide of animals and that of plants are respectively",o:["Starch and glycogen","Glycogen and starch","Cellulose and chitin","Glycogen and cellulose"],a:1,d:"E",t:"Biomolecules",e:"Glycogen is the highly branched animal store; starch (amylose plus amylopectin) is the plant store. Cellulose is structural."},
+{q:"The axoneme of a cilium shows which microtubular arrangement?",o:["9 + 0 with triplets","9 + 2 with doublets","9 + 2 with triplets","11 + 0 with singlets"],a:1,d:"E",t:"Cell biology",e:"Nine peripheral doublets surround two central singlet microtubules in motile cilia and flagella."},
+{q:"A centriole differs from the axoneme in having",o:["9 + 2 doublets","9 + 0 triplets with no central tubule","9 + 0 doublets","A 12 + 1 pattern"],a:1,d:"M",t:"Cell biology",e:"Centrioles and basal bodies have nine triplet fibrils and a cartwheel structure but no central tubules."},
+{q:"A chromosome bearing a secondary constriction and a small terminal knob-like body is called a",o:["Metacentric chromosome","Satellite or SAT chromosome","Telocentric chromosome","Polytene chromosome"],a:1,d:"M",t:"Cell biology",e:"The secondary constriction is the nucleolar organiser region; the part beyond it is the satellite."},
+{q:"Which of the following is NOT a part of the endomembrane system?",o:["Endoplasmic reticulum","Golgi complex","Mitochondrion","Lysosome"],a:2,d:"M",t:"Cell biology",e:"The endomembrane system is ER, Golgi, lysosomes and vacuoles. Mitochondria, chloroplasts and peroxisomes are excluded because their functions are not coordinated with these."},
+{q:"Lysosomes are called suicidal bags of the cell because they",o:["Store waste permanently","Contain acid hydrolases that can digest the cell's own contents","Produce ATP for autolysis","Destroy only foreign bacteria"],a:1,d:"E",t:"Cell biology",e:"If the lysosomal membrane ruptures, the hydrolytic enzymes digest the cell itself, a process called autolysis."},
+{q:"The ribosome of a prokaryotic cell is",o:["80S with 60S and 40S subunits","70S with 50S and 30S subunits","70S with 60S and 40S subunits","80S with 50S and 30S subunits"],a:1,d:"E",t:"Cell biology",e:"Mitochondrial and chloroplast ribosomes are also 70S, which supports the endosymbiotic theory."},
+{q:"The middle lamella that cements two adjacent plant cells is mainly composed of",o:["Cellulose","Calcium pectate","Lignin","Suberin"],a:1,d:"M",t:"Cell biology",e:"This is why treatment with a calcium-removing agent separates plant cells (maceration)."},
+{q:"Cytoplasmic strands that connect the protoplasm of adjacent plant cells through the cell wall are",o:["Plasmodesmata","Pits","Sieve pores","Desmosomes"],a:0,d:"E",t:"Cell biology",e:"Plasmodesmata create the symplastic pathway for movement of substances between cells."},
+{q:"Which plant cell is living at maturity yet lacks a nucleus?",o:["Companion cell","Sieve tube element","Xylem vessel element","Parenchyma cell"],a:1,d:"M",t:"Plant anatomy",e:"Sieve tube elements lose their nucleus but stay alive and are controlled by the nucleus of the adjacent companion cell."},
+{q:"After the S phase of interphase,",o:["The chromosome number doubles and DNA doubles","DNA content doubles but chromosome number stays the same","Chromosome number doubles but DNA stays the same","Neither changes"],a:1,d:"M",t:"Cell division",e:"Each chromosome becomes two sister chromatids held by one centromere, so the count of chromosomes is unchanged."},
+{q:"Crossing over between homologous chromosomes takes place during",o:["Leptotene","Zygotene","Pachytene","Diplotene"],a:2,d:"M",t:"Cell division",e:"Recombination nodules and the enzyme recombinase act at pachytene of prophase I."},
+{q:"The synaptonemal complex is formed during",o:["Leptotene","Zygotene","Diplotene","Diakinesis"],a:1,d:"D",t:"Cell division",e:"Synapsis (pairing of homologues) occurs at zygotene, and the paired structure is held by the synaptonemal complex."},
+{q:"Chiasmata first become visible during",o:["Pachytene","Diplotene","Diakinesis","Metaphase I"],a:1,d:"D",t:"Cell division",e:"At diplotene the synaptonemal complex dissolves and homologues separate slightly, staying joined at the X-shaped chiasmata."},
+{q:"The centromere splits and sister chromatids separate during",o:["Metaphase","Anaphase","Telophase","Prophase"],a:1,d:"M",t:"Cell division",e:"In mitosis this happens at anaphase; in meiosis it is delayed to anaphase II, which is why meiosis I is reductional."},
+{q:"Cytokinesis in a plant cell occurs by",o:["Cleavage furrow formation","Cell plate formation from the centre outwards","Budding","Constriction of the plasma membrane inwards"],a:1,d:"E",t:"Cell division",e:"The rigid cell wall prevents furrowing, so a cell plate grows from the centre towards the periphery."},
+{q:"A plant cell with 2n = 24 undergoes meiosis. The number of daughter cells and chromosomes per cell are",o:["2 cells with 24 each","4 cells with 12 each","4 cells with 24 each","2 cells with 12 each"],a:1,d:"M",t:"Cell division",e:"Meiosis halves the chromosome number and gives four haploid cells from one diploid cell."},
+{q:"In an organism with 2n = 20, a monosomic individual will have how many chromosomes?",o:["18","19","21","22"],a:1,d:"M",t:"Genetics",e:"Monosomy is 2n \u2212 1. Nullisomy is 2n \u2212 2 (18) and trisomy is 2n + 1 (21)."},
+{q:"A test cross of a dihybrid with a double recessive parent, with genes on different chromosomes, gives a phenotypic ratio of",o:["3 : 1","9 : 3 : 3 : 1","1 : 1 : 1 : 1","1 : 2 : 1"],a:2,d:"M",t:"Genetics",e:"The dihybrid makes four gamete types in equal number and the recessive parent makes only one, so four phenotypes appear equally."},
+{q:"In Mirabilis jalapa, a cross between red and white flowered plants gives pink F1. The F2 phenotypic ratio will be",o:["3 : 1","1 : 2 : 1","9 : 3 : 3 : 1","2 : 1"],a:1,d:"M",t:"Genetics",e:"With incomplete dominance the heterozygote has its own phenotype, so the phenotypic ratio equals the genotypic ratio."},
+{q:"The ABO blood group system in humans is an example of",o:["Multiple alleles with codominance","Incomplete dominance only","Polygenic inheritance","Sex-linked inheritance"],a:0,d:"M",t:"Genetics",e:"Three alleles (I^A, I^B, i) exist in the population; I^A and I^B are codominant, giving group AB."},
+{q:"If the recombination frequency between two linked genes is 20 per cent, the distance between them is",o:["2 map units","20 map units","80 map units","Cannot be calculated"],a:1,d:"D",t:"Genetics",e:"One map unit (centimorgan) equals one per cent recombination. Genes lying farther apart recombine more often."},
+{q:"The RNA that acts as an adaptor molecule during translation is",o:["mRNA","tRNA","rRNA","snRNA"],a:1,d:"E",t:"Molecular biology",e:"tRNA has an anticodon that reads the codon and an acceptor end that carries the specific amino acid."},
+{q:"Peptide bond formation in the ribosome is catalysed by",o:["A protein enzyme in the small subunit","23S rRNA acting as a ribozyme","tRNA","DNA polymerase"],a:1,d:"D",t:"Molecular biology",e:"Peptidyl transferase activity lies in the rRNA of the large subunit, so the ribosome is a ribozyme."},
+{q:"Out of 64 codons, the number that code for amino acids and the number of stop codons are",o:["64 and 0","61 and 3","60 and 4","62 and 2"],a:1,d:"M",t:"Molecular biology",e:"UAA, UAG and UGA are stop (nonsense) codons. AUG codes for methionine and also acts as the initiator."},
+{q:"The genetic code is said to be degenerate because",o:["One codon codes for more than one amino acid","One amino acid is coded by more than one codon","The code overlaps","The code is different in different organisms"],a:1,d:"M",t:"Molecular biology",e:"For example, six codons code for leucine. Degeneracy buffers the effect of many point mutations."},
+{q:"Semi-conservative DNA replication was experimentally proved by",o:["Griffith using mice","Meselson and Stahl using heavy nitrogen in E. coli","Hershey and Chase using bacteriophage","Watson and Crick using X-ray data"],a:1,d:"M",t:"Molecular biology",e:"15N-labelled DNA shifted to a hybrid density after one generation, which only fits the semi-conservative model."},
+{q:"Okazaki fragments on the lagging strand are joined together by",o:["DNA polymerase III","DNA ligase","Helicase","Primase"],a:1,d:"M",t:"Molecular biology",e:"Ligase seals the nick by forming the phosphodiester bond between adjacent fragments."},
+{q:"EcoRI cuts DNA at the sequence GAATTC. Such a sequence is called palindromic and the cut produces",o:["Blunt ends","Sticky (cohesive) ends with single-stranded overhangs","Random ends","Circular DNA only"],a:1,d:"M",t:"Biotechnology",e:"Staggered cuts leave short unpaired overhangs that can pair with any DNA cut by the same enzyme, allowing recombinant DNA."},
+{q:"The natural genetic engineer used to make transgenic plants is",o:["Bacillus thuringiensis","Agrobacterium tumefaciens with its Ti plasmid","Escherichia coli","Thermus aquaticus"],a:1,d:"M",t:"Biotechnology",e:"Agrobacterium naturally transfers T-DNA into plant cells; a disarmed Ti plasmid is used as a vector."},
+{q:"The thermostable DNA polymerase used in PCR is obtained from",o:["E. coli","Thermus aquaticus","Agrobacterium","Saccharomyces"],a:1,d:"E",t:"Biotechnology",e:"Taq polymerase survives the 94 \u00b0C denaturation step, so fresh enzyme need not be added each cycle."},
+{q:"The Bt toxin does not kill the bacterium that makes it because",o:["The bacterium has an antidote","It exists as an inactive protoxin that is activated only in the alkaline gut of the insect","It is stored outside the cell","The bacterium lacks receptors for it"],a:1,d:"D",t:"Biotechnology",e:"The crystal protoxin is solubilised and activated by the alkaline pH of the insect midgut, then makes pores in gut cells."},
+{q:"Trichoderma, widely used in agriculture, is a",o:["Free-living fungus used as a biocontrol agent against plant pathogens","Nitrogen-fixing bacterium","Blue green alga used as a biofertiliser","Chemical fungicide"],a:0,d:"E",t:"Ecology and applications",e:"Trichoderma species in root ecosystems control several soil-borne fungal diseases."},
+{q:"The pyramid of energy is always upright because",o:["Producers are always more numerous","Energy is lost as heat at every transfer, so it decreases upwards","Biomass always increases upwards","Consumers store more energy than producers"],a:1,d:"M",t:"Ecology",e:"Energy flow is unidirectional and roughly 90 per cent is lost at each trophic level."},
+{q:"An inverted pyramid of biomass is typically seen in",o:["A grassland","A forest","A sea or pond ecosystem","A desert"],a:2,d:"M",t:"Ecology",e:"The standing crop of phytoplankton at any moment is smaller than that of the zooplankton feeding on them, though turnover is very fast."},
+{q:"The ten per cent law of energy transfer between trophic levels was proposed by",o:["Odum","Lindeman","Tansley","Raunkiaer"],a:1,d:"E",t:"Ecology",e:"Lindeman stated that only about 10 per cent of energy at one trophic level passes to the next."},
+{q:"The correct sequence of steps in decomposition is",o:["Leaching \u2192 fragmentation \u2192 humification \u2192 catabolism \u2192 mineralisation","Fragmentation \u2192 leaching \u2192 catabolism \u2192 humification \u2192 mineralisation","Catabolism \u2192 fragmentation \u2192 leaching \u2192 mineralisation \u2192 humification","Humification \u2192 mineralisation \u2192 fragmentation \u2192 leaching \u2192 catabolism"],a:1,d:"D",t:"Ecology",e:"Detritivores break litter down, water-soluble nutrients leach away, enzymes degrade the rest, humus forms, and finally nutrients are released as inorganic ions."},
+{q:"Humus is important in soil because it is",o:["A dark, amorphous substance highly resistant to microbial action and a nutrient reservoir","Rapidly decomposed within a day","Made only of undecomposed leaves","Toxic to all soil microbes"],a:0,d:"M",t:"Ecology",e:"Being resistant, humus decomposes very slowly and keeps releasing nutrients over a long period."},
+{q:"A lichen, in which an alga and a fungus live together to mutual benefit, is an example of",o:["Commensalism","Mutualism","Parasitism","Amensalism"],a:1,d:"E",t:"Ecology",e:"The alga supplies food and the fungus supplies shelter, water and minerals. Both gain."},
+{q:"Which of the following is NOT one of the four major causes of biodiversity loss (the evil quartet)?",o:["Habitat loss and fragmentation","Over-exploitation","Drought and floods","Alien species invasion"],a:2,d:"M",t:"Ecology",e:"The evil quartet is habitat loss and fragmentation, over-exploitation, alien species invasion and co-extinction. Habitat loss is the single biggest cause."},
+{q:"Cryopreservation of gametes at \u2212196 \u00b0C in liquid nitrogen is an example of",o:["In situ conservation","Ex situ conservation","Sacred grove protection","Biosphere reserve management"],a:1,d:"M",t:"Ecology",e:"Ex situ means conserving outside the natural habitat. Botanical gardens, zoos and seed banks are other examples."},
+{q:"Sporopollenin makes the exine of a pollen grain extremely resistant, but it is absent at the",o:["Intine","Germ pores","Tapetum","Nucellus"],a:1,d:"M",t:"Plant reproduction",e:"Germ pores stay free of sporopollenin so the pollen tube can emerge during germination."},
+{q:"The innermost wall layer of the anther, which nourishes the developing pollen grains, is the",o:["Epidermis","Endothecium","Middle layer","Tapetum"],a:3,d:"M",t:"Plant reproduction",e:"The tapetum supplies nutrition and also the sporopollenin and pollenkitt of the pollen wall."},
+{q:"At the time of shedding, pollen grains of most angiosperms are",o:["One celled","Two celled, with a vegetative and a generative cell","Three celled always","Four celled"],a:1,d:"M",t:"Plant reproduction",e:"In about 60 per cent of species pollen is shed at the 2-celled stage; the generative cell divides later in the pollen tube."},
+{q:"A typical mature angiosperm embryo sac is",o:["8 celled and 8 nucleate","7 celled and 8 nucleate","7 celled and 7 nucleate","6 celled and 8 nucleate"],a:1,d:"M",t:"Plant reproduction",e:"Three antipodals, two synergids, one egg and one large central cell with two polar nuclei together make 7 cells and 8 nuclei."},
+{q:"The endosperm of angiosperms is triploid because it is formed by",o:["Fusion of two polar nuclei only","Fusion of one male gamete with two polar nuclei (triple fusion)","Mitosis of the zygote","Fusion of the egg with two male gametes"],a:1,d:"M",t:"Plant reproduction",e:"Double fertilisation gives a diploid zygote and a triploid primary endosperm nucleus."},
+{q:"Sieve tube elements are connected end to end by perforated walls called",o:["Pits","Sieve plates","Plasmodesmata","Companion plates"],a:1,d:"M",t:"Plant anatomy",e:"Cytoplasmic strands pass through sieve pores in the sieve plates, allowing food to flow from cell to cell."},
+{q:"Commercial timber is obtained from",o:["Secondary phloem","Secondary xylem","Cork cambium","Pith"],a:1,d:"E",t:"Plant anatomy",e:"The vascular cambium adds far more secondary xylem inside than phloem outside, and this accumulated wood is timber."},
+{q:"Cork cells are impervious to water because their walls are deposited with",o:["Lignin","Suberin","Cutin","Pectin"],a:1,d:"M",t:"Plant anatomy",e:"Cork (phellem) is produced by the cork cambium or phellogen, and suberin makes it waterproof and protective."},
+{q:"Grass leaves roll inwards in dry weather because bulliform cells",o:["Become turgid and push the leaf open","Lose water, become flaccid and make the leaf curl inwards","Divide rapidly","Secrete wax on the surface"],a:1,d:"M",t:"Plant anatomy",e:"Rolling reduces the exposed surface and lowers transpiration, an adaptation to water shortage."},
+{q:"Opening of stomata during the day is directly associated with",o:["Efflux of K+ from guard cells","Influx of K+ into guard cells, followed by water entry and turgidity","Loss of water from guard cells","Accumulation of starch in guard cells"],a:1,d:"M",t:"Plant physiology",e:"Potassium ions move in, lowering the water potential of guard cells; water follows, the cells swell and the pore opens."},
+{q:"Casparian strips, which force water to enter the symplast, occur in the",o:["Epidermis","Cortex","Endodermis","Pericycle"],a:2,d:"D",t:"Plant physiology",e:"The suberised strips block the apoplastic route so all water and minerals must pass through the cell membrane, allowing selective uptake."},
+{q:"Kranz anatomy with large chloroplast-rich bundle sheath cells is a feature of",o:["C3 plants","C4 plants","CAM plants","Aquatic plants only"],a:1,d:"M",t:"Plant physiology",e:"In C4 plants the initial fixation happens in mesophyll and the Calvin cycle in bundle sheath cells, which avoids photorespiration."}
+]},
+{s:"Chemistry",items:[
+{q:"Carbon forms both CO and CO2. A fixed mass of carbon combines with oxygen in the simple ratio 1 : 2. This illustrates the law of",o:["Constant proportions","Multiple proportions","Reciprocal proportions","Gaseous volumes"],a:1,d:"M",t:"Basic concepts",e:"When two elements form more than one compound, the masses of one element that combine with a fixed mass of the other bear a simple whole number ratio."},
+{q:"Water from a river, a well and a laboratory all contain hydrogen and oxygen in the mass ratio 1 : 8. This is the law of",o:["Multiple proportions","Constant (definite) proportions","Conservation of mass","Reciprocal proportions"],a:1,d:"E",t:"Basic concepts",e:"A pure compound always contains the same elements in the same fixed proportion by mass, whatever its source."},
+{q:"Which of the following contains the same number of molecules as 16 g of O2?",o:["8 g of SO2","14 g of N2","2 g of H2","4 g of He"],a:1,d:"M",t:"Mole concept",e:"16 g O2 = 0.5 mol. 14 g N2 (M = 28) is also 0.5 mol, so both have the same number of molecules."},
+{q:"The mass of oxygen present in 16.1 g of Na2SO4.10H2O (molar mass 322) is",o:["5.6 g","11.2 g","22.4 g","1.6 g"],a:1,d:"D",t:"Mole concept",e:"16.1/322 = 0.05 mol. Each formula unit has 4 + 10 = 14 oxygen atoms, so oxygen mass per mole = 224 g. Then 0.05 \u00d7 224 = 11.2 g."},
+{q:"The total number of atoms present in 4.4 g of CO2 is about",o:["6.02 \u00d7 10^22","1.806 \u00d7 10^23","6.02 \u00d7 10^23","3.01 \u00d7 10^23"],a:1,d:"M",t:"Mole concept",e:"4.4/44 = 0.1 mol of CO2 = 0.3 mol of atoms, which is 0.3 \u00d7 6.02 \u00d7 10^23 = 1.806 \u00d7 10^23."},
+{q:"The energy of an electron in the second Bohr orbit of a hydrogen atom is",o:["\u22123.4 eV","\u221213.6 eV","\u22121.51 eV","\u22126.8 eV"],a:0,d:"M",t:"Atomic structure",e:"En = \u221213.6/n\u00b2 eV. For n = 2, E = \u221213.6/4 = \u22123.4 eV."},
+{q:"The radius of the third Bohr orbit of a hydrogen atom is nearly",o:["0.529 \u00c5","1.587 \u00c5","4.761 \u00c5","2.116 \u00c5"],a:2,d:"M",t:"Atomic structure",e:"rn = 0.529 n\u00b2 \u00c5 for hydrogen. For n = 3, r = 0.529 \u00d7 9 = 4.761 \u00c5."},
+{q:"The energy required to remove the electron from a ground state hydrogen atom is",o:["3.4 eV","13.6 eV","1.51 eV","27.2 eV"],a:1,d:"E",t:"Atomic structure",e:"The electron must be raised from \u221213.6 eV to zero, so the ionisation energy is 13.6 eV."},
+{q:"Heisenberg's uncertainty principle has no practical significance for a moving cricket ball because",o:["The ball is not a particle","The uncertainties involved are far too small to measure for large masses","The ball moves too slowly","Planck's constant is zero for large bodies"],a:1,d:"E",t:"Atomic structure",e:"\u0394x.\u0394p \u2265 h/4\u03c0. Since h is extremely small, the uncertainty matters only for particles of very small mass such as electrons."},
+{q:"The de Broglie wavelength of a moving particle is given by",o:["\u03bb = h/mv","\u03bb = mv/h","\u03bb = hv/m","\u03bb = m/hv"],a:0,d:"E",t:"Atomic structure",e:"Wavelength is inversely proportional to momentum, so heavy or fast particles have negligible wavelength."},
+{q:"The electronic configuration of chromium (Z = 24) is",o:["[Ar] 3d4 4s2","[Ar] 3d5 4s1","[Ar] 3d6 4s0","[Ar] 3d3 4s3"],a:1,d:"D",t:"Atomic structure",e:"A half-filled 3d5 with 4s1 is more stable than 3d4 4s2 because of symmetry and exchange energy. Copper behaves similarly with 3d10 4s1."},
+{q:"The total number of orbitals present in the shell with n = 3 is",o:["3","6","9","18"],a:2,d:"M",t:"Atomic structure",e:"Number of orbitals = n\u00b2 = 9 (one 3s, three 3p, five 3d). These can hold 18 electrons."},
+{q:"The correct order of electronegativity is",o:["F > O > N > C","C > N > O > F","O > F > N > C","N > O > C > F"],a:0,d:"E",t:"Periodicity",e:"Electronegativity increases across a period, so fluorine is the most electronegative element in the periodic table."},
+{q:"The first ionisation energy of nitrogen is higher than that of oxygen because nitrogen has",o:["A larger atomic size","A stable half-filled 2p3 configuration","Higher nuclear charge","More shielding electrons"],a:1,d:"D",t:"Periodicity",e:"Removing an electron from the extra-stable half-filled p subshell needs more energy, and in oxygen electron-electron repulsion in the paired orbital eases removal."},
+{q:"Which of the following is an electron deficient molecule?",o:["NH3","BF3","PCl5","H2O"],a:1,d:"M",t:"Chemical bonding",e:"Boron has only six electrons around it, an incomplete octet, so BF3 acts as a Lewis acid. PCl5 has an expanded octet instead."},
+{q:"Among LiCl, NaCl, KCl and RbCl, the most covalent is",o:["LiCl","NaCl","KCl","RbCl"],a:0,d:"M",t:"Chemical bonding",e:"By Fajans' rules the smallest cation has the highest polarising power, so Li+ distorts the chloride ion the most."},
+{q:"Beryllium shows a diagonal relationship with aluminium mainly because both have",o:["The same number of valence electrons","Nearly the same charge to size ratio (polarising power)","The same atomic radius","Identical electronic configurations"],a:1,d:"M",t:"Periodicity",e:"Down a group size increases and across a period charge increases, so diagonally placed elements end up with similar polarising power. Li and Mg are another such pair."},
+{q:"Pb2+ is more stable than Pb4+ whereas Sn4+ is quite stable. This is explained by",o:["Lanthanide contraction","Inert pair effect","Shielding by d electrons only","Diagonal relationship"],a:1,d:"M",t:"Periodicity",e:"Down group 14 the ns2 pair becomes reluctant to take part in bonding, so the lower oxidation state becomes more stable."},
+{q:"Zirconium and hafnium have almost identical atomic radii because of",o:["Inert pair effect","Lanthanide contraction","Diagonal relationship","Shielding by 4s electrons"],a:1,d:"D",t:"Periodicity",e:"Poor shielding by 4f electrons causes a steady size decrease across the lanthanides, cancelling the expected increase from Zr to Hf."},
+{q:"The hybridisation and shape of SF6 are",o:["sp3d, trigonal bipyramidal","sp3d2, octahedral","sp3, tetrahedral","sp3d3, pentagonal bipyramidal"],a:1,d:"M",t:"Chemical bonding",e:"Six bond pairs and no lone pair around sulphur give six sp3d2 hybrid orbitals directed to the corners of an octahedron."},
+{q:"Which of the following has the lowest boiling point?",o:["H2O","HF","NH3","CH4"],a:3,d:"M",t:"Chemical bonding",e:"Water, HF and ammonia all form hydrogen bonds. CH4 is non-polar and has only weak London dispersion forces."},
+{q:"The pressure exerted by 8 g of oxygen gas (M = 32) in a 0.02 m3 vessel at 27 \u00b0C is about (R = 8.314 J K\u22121 mol\u22121)",o:["31178 Pa","62356 Pa","15589 Pa","2494 Pa"],a:0,d:"D",t:"States of matter",e:"n = 8/32 = 0.25 mol, T = 300 K. P = nRT/V = (0.25 \u00d7 8.314 \u00d7 300)/0.02 = 31178 Pa."},
+{q:"The volume occupied by 0.5 mol of an ideal gas at STP is",o:["22.4 L","11.2 L","5.6 L","44.8 L"],a:1,d:"E",t:"States of matter",e:"One mole of any gas occupies 22.4 L at STP, so half a mole occupies 11.2 L."},
+{q:"Under the same conditions, hydrogen diffuses how many times faster than oxygen?",o:["2 times","4 times","8 times","16 times"],a:1,d:"M",t:"States of matter",e:"By Graham's law, rate is inversely proportional to the square root of molar mass. \u221a(32/2) = \u221a16 = 4."},
+{q:"For the reaction N2(g) + 3H2(g) \u2192 2NH3(g),",o:["\u0394H = \u0394E","\u0394H > \u0394E","\u0394H < \u0394E","\u0394H is always zero"],a:2,d:"M",t:"Thermodynamics",e:"\u0394H = \u0394E + \u0394ngRT and \u0394ng = 2 \u2212 4 = \u22122, so the RT term is negative and \u0394H is less than \u0394E."},
+{q:"For which of the following reactions is \u0394H equal to \u0394E?",o:["2CO(g) + O2(g) \u2192 2CO2(g)","H2(g) + Cl2(g) \u2192 2HCl(g)","PCl5(g) \u2192 PCl3(g) + Cl2(g)","CaCO3(s) \u2192 CaO(s) + CO2(g)"],a:1,d:"M",t:"Thermodynamics",e:"\u0394ng = 2 \u2212 2 = 0, so \u0394ngRT vanishes. This also holds for reactions involving only solids and liquids."},
+{q:"Hess's law of constant heat summation is a direct consequence of the fact that",o:["Enthalpy is a state function, independent of the path","All reactions are exothermic","Entropy always increases","Heat is not a form of energy"],a:0,d:"M",t:"Thermodynamics",e:"Since \u0394H depends only on initial and final states, the total enthalpy change is the same whether the reaction goes in one step or several."},
+{q:"The value of the equilibrium constant of a reversible reaction changes with",o:["Pressure","Concentration of reactants","Temperature","Addition of a catalyst"],a:2,d:"M",t:"Equilibrium",e:"Pressure, concentration and catalysts only shift the position of equilibrium or the rate of reaching it. Only temperature changes K itself."},
+{q:"In the reaction N2(g) + 3H2(g) \u21cc 2NH3(g) + heat, the yield of ammonia is increased by",o:["High pressure and low temperature","Low pressure and high temperature","High pressure and high temperature","Adding a catalyst only"],a:0,d:"M",t:"Equilibrium",e:"The forward reaction reduces the number of moles and releases heat, so high pressure and low temperature favour it, as Le Chatelier predicts."},
+{q:"For the equilibrium 2SO2(g) + O2(g) \u21cc 2SO3(g), the relation between Kp and Kc is",o:["Kp = Kc","Kp = Kc(RT)","Kp = Kc(RT)\u22121","Kp = Kc(RT)2"],a:2,d:"D",t:"Equilibrium",e:"Kp = Kc(RT)^\u0394n and \u0394n = 2 \u2212 3 = \u22121."},
+{q:"A weak acid HA has Ka = 1.0 \u00d7 10\u22125. In a 0.001 M solution, the percentage dissociation is closest to",o:["1 %","10 %","0.1 %","32 %"],a:1,d:"D",t:"Ionic equilibrium",e:"\u03b1 = \u221a(Ka/C) = \u221a(10\u22125/10\u22123) = \u221a(10\u22122) = 0.1, that is 10 per cent. Dilution increases the degree of dissociation."},
+{q:"The pH of a 0.001 M HCl solution is",o:["1","2","3","11"],a:2,d:"E",t:"Ionic equilibrium",e:"HCl is fully ionised, so [H+] = 10\u22123 M and pH = \u2212log(10\u22123) = 3."},
+{q:"Which of the following can act both as a Bronsted acid and a Bronsted base?",o:["HCl","H2PO4\u2212","NH4+","CH3COO\u2212"],a:1,d:"M",t:"Ionic equilibrium",e:"H2PO4\u2212 can donate a proton to give HPO4^2\u2212 and accept one to give H3PO4. HCO3\u2212 and water behave the same way."},
+{q:"Addition of sodium acetate to an acetic acid solution decreases the ionisation of the acid. This is",o:["The common ion effect","Hydrolysis","Buffer failure","The solubility product effect"],a:0,d:"M",t:"Ionic equilibrium",e:"Extra acetate ions push the equilibrium CH3COOH \u21cc CH3COO\u2212 + H+ backwards, lowering the ionisation of the acid."},
+{q:"In qualitative analysis, NH4Cl is added before NH4OH while precipitating group III radicals in order to",o:["Increase the concentration of OH\u2212 ions","Suppress the ionisation of NH4OH by the common ion effect","Oxidise the metal ions","Dissolve group II sulphides"],a:1,d:"D",t:"Salt analysis",e:"A low OH\u2212 concentration precipitates only the group III hydroxides (Fe3+, Al3+, Cr3+) and keeps group IV and V ions in solution."},
+{q:"The oxidation number of oxygen in H2O2 is",o:["\u22122","\u22121","0","+2"],a:1,d:"M",t:"Redox",e:"In peroxides oxygen is \u22121, in superoxides \u22121/2, in normal oxides \u22122, and in OF2 it is +2 because fluorine is more electronegative."},
+{q:"The oxidation state of chromium in K2Cr2O7 is",o:["+3","+6","+7","+2"],a:1,d:"E",t:"Redox",e:"2(+1) + 2x + 7(\u22122) = 0 gives 2x = 12, so x = +6."},
+{q:"Fluorine is the strongest oxidising agent among the halogens because it has",o:["The largest atomic size","The highest standard reduction potential and high electron affinity per unit size","The lowest electronegativity","The highest bond dissociation energy"],a:1,d:"M",t:"Redox",e:"Its small size, high electronegativity and high hydration energy of F\u2212 give it the highest tendency to be reduced."},
+{q:"The quantity of electricity required to deposit 1 mole of aluminium from molten Al2O3 is",o:["96500 C","193000 C","289500 C","579000 C"],a:2,d:"M",t:"Electrochemistry",e:"Al3+ + 3e\u2212 \u2192 Al needs 3 faradays, so 3 \u00d7 96500 = 289500 C."},
+{q:"Electrolytic reduction rather than carbon reduction is used to extract sodium and aluminium because these metals are",o:["Highly electronegative","Highly electropositive, so their oxides are very stable","Very heavy","Found as sulphides"],a:1,d:"M",t:"Metallurgy",e:"Their oxides have very high stability and carbon cannot reduce them; also the metal formed would react with carbon to form carbides."},
+{q:"For a zero order reaction,",o:["Rate doubles when concentration doubles","Rate is independent of the concentration of the reactant","Rate is proportional to the square of concentration","Half life is 0.693/k"],a:1,d:"M",t:"Kinetics",e:"Rate = k, so the unit of k is mol L\u22121 s\u22121. A photochemical reaction on a saturated catalyst surface is a typical example."},
+{q:"The half life of a first order reaction",o:["Depends on the initial concentration","Is equal to 0.693/k and is independent of initial concentration","Doubles when concentration doubles","Has the unit mol L\u22121"],a:1,d:"M",t:"Kinetics",e:"For first order, t1/2 = 0.693/k, which is why radioactive decay has a fixed half life."},
+{q:"Nessler's reagent gives a brown precipitate or brown colour with",o:["NO3\u2212","NH4+","SO4^2\u2212","Cl\u2212"],a:1,d:"E",t:"Salt analysis",e:"Nessler's reagent is alkaline K2HgI4; with ammonium ions it gives the brown iodide of Millon's base."},
+{q:"Phosgene is the common name of",o:["Ammonium chloride","Carbonyl chloride, COCl2","Nitric oxide","Phosphine"],a:1,d:"E",t:"Inorganic chemistry",e:"COCl2 is a highly poisonous gas made from CO and Cl2 in sunlight."},
+{q:"Iron becomes passive when dipped in concentrated nitric acid because",o:["It dissolves completely","A thin protective layer of oxide forms on its surface","It forms iron nitrate which is insoluble","The acid is too dilute to react"],a:1,d:"M",t:"Inorganic chemistry",e:"The adherent Fe3O4 film stops further attack. Aluminium and chromium behave the same way, which is why conc. HNO3 can be stored in aluminium containers."},
+{q:"The correct order of increasing thermal stability of group 2 carbonates is",o:["BaCO3 < SrCO3 < CaCO3 < MgCO3","BeCO3 < MgCO3 < CaCO3 < SrCO3 < BaCO3","CaCO3 < MgCO3 < BeCO3 < BaCO3","MgCO3 < BeCO3 < BaCO3 < CaCO3"],a:1,d:"M",t:"s-block",e:"As cation size increases down the group, polarisation of the carbonate ion decreases, so the carbonate resists decomposition more."},
+{q:"A salt solution gives a deep blue colour with excess ammonium hydroxide. The cation present is",o:["Fe2+","Al3+","Cu2+","Zn2+"],a:2,d:"E",t:"Salt analysis",e:"Copper forms the tetraamminecopper(II) complex [Cu(NH3)4]2+, which is deep blue."},
+{q:"The group reagent used for precipitating group III basic radicals is",o:["Dilute HCl","H2S in acidic medium","NH4Cl and NH4OH","H2S in ammoniacal medium"],a:2,d:"M",t:"Salt analysis",e:"Group I uses dilute HCl, group II H2S in acid, group III NH4Cl with NH4OH, group IV H2S in ammoniacal medium."},
+{q:"The tendency to form complex compounds is maximum in d-block elements because they have",o:["Large size and low charge","Small size, high nuclear charge and vacant d orbitals","Only s orbitals available","Very low ionisation energy"],a:1,d:"M",t:"d-block",e:"Small highly charged ions attract ligands strongly and empty d orbitals accept the lone pairs donated."},
+{q:"Oil of mirbane is the common name of",o:["Benzaldehyde","Nitrobenzene","Phenol","Benzoic acid"],a:1,d:"E",t:"Organic chemistry",e:"Nitrobenzene has an almond-like smell and is called oil of mirbane. Benzaldehyde is oil of bitter almond."},
+{q:"The alkaline hydrolysis of an ester to give an alcohol and the sodium salt of an acid is called",o:["Esterification","Saponification","Fermentation","Rearrangement"],a:1,d:"M",t:"Organic chemistry",e:"Ester + NaOH gives soap (sodium salt of a fatty acid) and glycerol, hence the name saponification."},
+{q:"The IUPAC name of (CH3)2C=CHCH3 is",o:["2-methylbut-2-ene","3-methylbut-2-ene","2-methylbut-1-ene","3,3-dimethylpropene"],a:0,d:"M",t:"Organic chemistry",e:"The longest chain containing the double bond has four carbons; numbering gives the double bond the lower locant at C2, with a methyl also at C2."},
+{q:"Ethanol heated with concentrated sulphuric acid at 170 \u00b0C gives",o:["Diethyl ether","Ethene","Ethyl hydrogen sulphate","Acetic acid"],a:1,d:"M",t:"Organic chemistry",e:"At a high temperature with excess acid, intramolecular dehydration gives ethene. At about 140 \u00b0C with excess alcohol, diethyl ether forms instead."},
+{q:"Benzene reacts with CH3COCl in presence of anhydrous AlCl3 to give acetophenone. This reaction is",o:["Friedel\u2013Crafts alkylation","Friedel\u2013Crafts acylation","Wurtz reaction","Kolbe's synthesis"],a:1,d:"M",t:"Organic chemistry",e:"An acyl chloride with a Lewis acid catalyst substitutes an acyl group onto the ring; using an alkyl halide instead would be alkylation."},
+{q:"The Wurtz reaction involves treating an alkyl halide with",o:["Sodium metal in dry ether to give a higher alkane","Zinc dust to give an alkene","Alcoholic KOH to give an alkene","Aqueous KOH to give an alcohol"],a:0,d:"M",t:"Organic chemistry",e:"Two alkyl groups couple, so the product always has an even number of carbon atoms when a single halide is used."},
+{q:"Propene reacts with HBr in the presence of benzoyl peroxide to give mainly",o:["2-bromopropane","1-bromopropane","1,2-dibromopropane","Propan-2-ol"],a:1,d:"D",t:"Organic chemistry",e:"Peroxides change the mechanism to a free radical one, so addition is anti-Markovnikov. Without peroxide, 2-bromopropane is the major product."},
+{q:"A compound gives a bright silver mirror with Tollens' reagent. The compound is likely to be",o:["An aldehyde","A ketone","A tertiary alcohol","An ether"],a:0,d:"E",t:"Organic chemistry",e:"Aldehydes are easily oxidised and reduce ammoniacal silver nitrate to metallic silver. Ketones do not respond."},
+{q:"The carbylamine reaction, which produces a foul smelling isocyanide, is a test for",o:["Primary amines","Secondary amines","Tertiary amines","Amides"],a:0,d:"M",t:"Organic chemistry",e:"A primary amine heated with chloroform and alcoholic KOH gives the offensive smelling isocyanide."},
+{q:"Nitrobenzene on reduction with Sn and concentrated HCl gives",o:["Aniline","Phenol","Benzoic acid","Nitrosobenzene"],a:0,d:"E",t:"Organic chemistry",e:"The nitro group is reduced completely to an amino group, giving aniline, the starting point for many dyes."},
+{q:"Which of the following does NOT give the iodoform test?",o:["Ethanol","Acetone","Acetaldehyde","Methanol"],a:3,d:"M",t:"Organic chemistry",e:"The test needs a CH3CO\u2013 group or a CH3CH(OH)\u2013 group. Methanol has neither, so it gives no yellow precipitate of CHI3."}
+]}
+];
+
+const list=document.getElementById("list");
+const counter=document.getElementById("count");
+let n=0;
+DATA.forEach(sec=>{
+  const h=document.createElement("h2");
+  h.className="sub";h.dataset.subject=sec.s;
+  h.innerHTML=sec.s+"<span>"+sec.items.length+" questions</span>";
+  list.appendChild(h);
+  sec.items.forEach(it=>{
+    n++;
+    const d=document.createElement("article");
+    d.className="q";d.dataset.subject=sec.s;
+    const keys=["A","B","C","D"];
+    const diffName={E:"Easy",M:"Medium",D:"Tricky"}[it.d];
+    let opts="";
+    it.o.forEach((o,i)=>{opts+='<li data-k="'+keys[i]+'"'+(i===it.a?' class="correct"':'')+'>'+o+'</li>';});
+    d.innerHTML='<div class="num">'+n+'</div><div><p class="stem">'+it.q+
+      '<span class="tag '+it.d+'">'+diffName+'</span></p><ol class="opts">'+opts+'</ol>'+
+      '<button class="reveal">Show answer</button>'+
+      '<div class="ans"><b>Answer: '+keys[it.a]+') '+it.o[it.a]+'</b><p>'+it.e+
+      '</p><p class="topic">'+sec.s+" \u00b7 "+it.t+'</p></div></div>';
+    d.querySelector(".reveal").addEventListener("click",()=>{d.classList.add("open");update();});
+    list.appendChild(d);
+  });
+});
+
+function update(){
+  const all=[...document.querySelectorAll(".q")].filter(q=>q.style.display!=="none");
+  const open=all.filter(q=>q.classList.contains("open")).length;
+  counter.textContent=open+" of "+all.length+" revealed";
+}
+document.querySelectorAll(".chip[data-f]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".chip[data-f]").forEach(b=>b.setAttribute("aria-pressed","false"));
+    btn.setAttribute("aria-pressed","true");
+    const f=btn.dataset.f;
+    document.querySelectorAll(".q,.sub").forEach(el=>{
+      el.style.display=(f==="all"||el.dataset.subject===f)?"":"none";
+    });
+    document.querySelectorAll(".q").forEach(el=>{if(el.style.display==="")el.style.display="grid";});
+    if(window.innerWidth<=600){document.querySelectorAll(".q").forEach(el=>{if(el.style.display==="grid")el.style.display="block";});}
+    update();
+  });
+});
+document.getElementById("toggleAll").addEventListener("click",e=>{
+  const showing=e.target.textContent.indexOf("Show")===0;
+  document.querySelectorAll(".q").forEach(q=>q.classList.toggle("open",showing));
+  e.target.textContent=showing?"Hide all answers":"Show all answers";
+  update();
+});
+update();
+</script>
+</body>
+</html>
